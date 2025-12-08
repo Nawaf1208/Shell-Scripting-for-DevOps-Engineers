@@ -86,3 +86,86 @@
 
 - `if [ ${#1} -ne ${#2} ]; then`
     `...`
+
+## Conditionals
+
+**_15.Explain conditionals and demonstrate how to use them._**
+
+- Conditionals allow the shell to execute different code blocks based on whether a test expression (evaluated using `if` with `[ ]` or `(( ))`) is true or false.
+
+- `# Checks if file exists`
+- `if [ -f /etc/hosts ]; then`
+-   `echo "Hosts file found."`
+- `fi`
+
+- `# Checks if 10 is greater than 5`
+- `NUM=10`
+- `if (( NUM > 5 )); then`
+-   `echo "True."`
+- `else`
+-   `echo "False."`
+- `fi`
+
+**_16.In shell scripting, how to negate a conditional?_**
+
+- In shell scripting (Bash), you negate a conditional test using the `!` (exclamation mark) operator.
+
+**_17.In shell scripting, how to check if a given argument is a number?_**
+
+- `regex='^[0-9]+$'`
+- `if [[ ${var//*.} =~ $regex ]]; then`
+- `...`
+
+## Arithmetic Operations
+
+**_18.How to perform arithmetic operations on numbers?_**
+
+- One way: `$(( 1 + 2 ))`
+- Another way: `expr 1 + 2`
+
+**_19.How to perform arithmetic operations on numbers?_**
+
+- The easiest way to perform arithmetic operations on integers is using the double parenthesis syntax, `(( ... ))`.
+
+- You can perform standard operations like addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`) directly inside. To save the result to a variable, you wrap the expression with a dollar sign: `RESULT=$(( 5 * 10 - 2 ))`. Variables inside the parentheses (e.g., `A` in `A + 1`) do not need the dollar sign prefix. For operations involving floating-point numbers (decimals), you must use the external command `bc`.
+
+**_20.How to check if a given number has 4 as a factor?_**
+
+- `if [ $(($1 % 4)) -eq 0 ]; then`
+
+## Loops
+
+**_21.What is a loop? What types of loops are you familiar with?_**
+
+- A loop is a fundamental programming construct that allows a block of code (the loop body) to be executed repeatedly based on a control condition. This repetition continues until the condition is no longer met, preventing redundant coding.
+
+- 3 Types of Loops:
+  - 1.`for loop`: Iterates over a list of items, executing once for each item in a list or range (e.g., Processing every file in a directory).
+
+  - 2.`while loop`: Repeats a block of code as long as a specified conditional test remains true (e.g., Waiting for a log file to contain a specific entry).
+
+  - 3.`until loop`: Repeats a block of code as long as a specified conditional test remains false (e.g., Retrying a network connection until it succeeds).
+ 
+**_22.Demonstrate how to use loops._**
+
+- Three main loop types:
+  - 1.`for` Loop (Iterating over a list): This loop runs once for each item listed in the `do...done` block.
+
+  - `for FILE in file1.txt file2.txt file3.txt; do`
+  -   `echo "Processing $FILE"`
+  - `done`
+
+  - 2.`while` Loop (Condition is true): This loop continues executing as long as the condition (`[ $COUNT -lt 3 ]`) remains true.
+ 
+  - `COUNT=0`
+  - `while [ $COUNT -lt 3 ]; do`
+  -   `echo "Count is $COUNT"`
+  -   `COUNT=$((COUNT + 1))`
+  - `done`
+ 
+  - 3.`until` Loop (Condition is false): This loop continues executing until the condition (`[ -f /tmp/data.lock ]`) becomes true (i.e., until the file exists).
+ 
+  - `until [ -f /tmp/data.lock ]; do`
+  - `echo "Waiting for lock file..."`
+  - `sleep 5`
+  - `done`
