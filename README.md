@@ -195,5 +195,35 @@
 
 - `${var%.*}`
 
+## Misc
 
+**_27.Generate 8 digit random number._**
+
+- `shuf -i 9999999-99999999 -n 1`
+
+**_28.Can you give an example to some Bash best practices?_**
+
+- Four essential Bash scripting best practices:
+  - 1.Use Shebang: Always start scripts with `#!/bin/bash` (or `#!/usr/bin/env bash`) to ensure the correct interpreter is used.
+
+  - 2.Error Handling (Crucial!): Include `set -euo pipefail` at the top. This ensures the script exits immediately on errors (`-e`), handles unset variables (`-u`), and checks pipeline failures (`-o pipefail`).
+
+  - 3.Quote Variables: Always use double quotes (`"..."`) around variable expansions (e.g., `"$VAR"`) to prevent word splitting and globbing issues.
+
+  - 4.Use Functions: Break complex scripts into smaller, reusable functions.
+
+**_29.What is the ternary operator? How do you use it in bash?_**
+
+- A short way of using if/else. An example:
+
+- `[[ $a = 1 ]] && b="yes, equal" || b="nope"`
+
+**_30.What does the following code do and when would you use it?_**
+- **_diff <(ls /tmp) <(ls /var/tmp)_**
+
+- It is called 'process substitution'. It provides a way to pass the output of a command to another command when using a pipe | is not possible. It can be used when a command does not support STDIN or you need the output of multiple commands.
+
+**_31.What are you using for testing shell scripts?_**
+
+- bats
 
