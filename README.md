@@ -151,21 +151,49 @@
 - Three main loop types:
   - 1.`for` Loop (Iterating over a list): This loop runs once for each item listed in the `do...done` block.
 
-  - `for FILE in file1.txt file2.txt file3.txt; do`
-  -   `echo "Processing $FILE"`
-  - `done`
+    - `for FILE in file1.txt file2.txt file3.txt; do`
+    -   `echo "Processing $FILE"`
+    -   `done`
 
   - 2.`while` Loop (Condition is true): This loop continues executing as long as the condition (`[ $COUNT -lt 3 ]`) remains true.
  
-  - `COUNT=0`
-  - `while [ $COUNT -lt 3 ]; do`
-  -   `echo "Count is $COUNT"`
-  -   `COUNT=$((COUNT + 1))`
-  - `done`
+    - `COUNT=0`
+    - `while [ $COUNT -lt 3 ]; do`
+    -   `echo "Count is $COUNT"`
+    -   `COUNT=$((COUNT + 1))`
+    - `done`
  
   - 3.`until` Loop (Condition is false): This loop continues executing until the condition (`[ -f /tmp/data.lock ]`) becomes true (i.e., until the file exists).
  
-  - `until [ -f /tmp/data.lock ]; do`
-  - `echo "Waiting for lock file..."`
-  - `sleep 5`
-  - `done`
+    - `until [ -f /tmp/data.lock ]; do`
+    - `echo "Waiting for lock file..."`
+    - `done`
+
+## Troubleshooting
+
+**_23.How do you debug shell scripts?_**
+
+- Answer depends on the language you are using for writing your scripts. If Bash is used for example then:
+  - Adding -x to the script I'm running in Bash
+  - Old good way of adding echo statements
+
+- If Python, then using pdb is very useful.
+
+**_24.Running the following bash script, we don't get 2 as a result, why?_**
+- **_x = 2_**
+- **_echo $x_**
+
+- Should be `x=2`
+
+## Substring
+
+**_25.How to extract everything after the last dot in a string?_**
+
+- `${var//*.}`
+
+**_26.How to extract everything before the last dot in a string?_**
+
+- `${var%.*}`
+
+
+
