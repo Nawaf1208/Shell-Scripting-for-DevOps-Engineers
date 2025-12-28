@@ -1,5 +1,9 @@
 # Shell-Scripting-for-DevOps-Engineers
 
+![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
+
+![](ShellScripting.png)
+
 ## Self Assessment
 
 **_1.What does this line in shell scripts means?: `#!/bin/bash`_**
