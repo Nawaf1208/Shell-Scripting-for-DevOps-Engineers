@@ -165,6 +165,8 @@ $\color{green}{\text{Answer}}$
 
 Using the keyword `read` so for example `read x` will wait for user input and will store it in the variable x.
 
+</details>
+
 <details>
 <summary><b><i>14.How to compare variables length?</i></b></summary>
 
