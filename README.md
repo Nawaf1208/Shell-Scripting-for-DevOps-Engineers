@@ -231,112 +231,197 @@ if [[ ${var//*.} =~ $regex ]]; then
 
 ## Arithmetic Operations
 
-**_18.How to perform arithmetic operations on numbers?_**
+<details>
+<summary><b><i>18.How to perform arithmetic operations on numbers?</i></b></summary>
 
-- One way: `$(( 1 + 2 ))`
-- Another way: `expr 1 + 2`
+$\color{green}{\text{Answer}}$
 
-**_19.How to perform arithmetic operations on numbers?_**
+One way: `$(( 1 + 2 ))`
 
-- The easiest way to perform arithmetic operations on integers is using the double parenthesis syntax, `(( ... ))`.
+Another way: `expr 1 + 2`
 
-- You can perform standard operations like addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`) directly inside. To save the result to a variable, you wrap the expression with a dollar sign: `RESULT=$(( 5 * 10 - 2 ))`. Variables inside the parentheses (e.g., `A` in `A + 1`) do not need the dollar sign prefix. For operations involving floating-point numbers (decimals), you must use the external command `bc`.
+</details>
 
-**_20.How to check if a given number has 4 as a factor?_**
+<details>
+<summary><b><i>19.How to perform arithmetic operations on numbers?</i></b></summary>
 
-- `if [ $(($1 % 4)) -eq 0 ]; then`
+$\color{green}{\text{Answer}}$
+
+The easiest way to perform arithmetic operations on integers is using the double parenthesis syntax, `(( ... ))`.
+
+You can perform standard operations like addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`) directly inside. To save the result to a variable, you wrap the expression with a dollar sign: `RESULT=$(( 5 * 10 - 2 ))`. Variables inside the parentheses (e.g., `A` in `A + 1`) do not need the dollar sign prefix. For operations involving floating-point numbers (decimals), you must use the external command `bc`.
+
+</details>
+
+<details>
+<summary><b><i>20.How to check if a given number has 4 as a factor?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+`if [ $(($1 % 4)) -eq 0 ]; then`
+
+</details>
 
 ## Loops
 
-**_21.What is a loop? What types of loops are you familiar with?_**
+<details>
+<summary><b><i>21.What is a loop? What types of loops are you familiar with?</i></b></summary>
 
-- A loop is a fundamental programming construct that allows a block of code (the loop body) to be executed repeatedly based on a control condition. This repetition continues until the condition is no longer met, preventing redundant coding.
+$\color{green}{\text{Answer}}$
 
-- 3 Types of Loops:
-  - 1.`for loop`: Iterates over a list of items, executing once for each item in a list or range (e.g., Processing every file in a directory).
+A loop is a fundamental programming construct that allows a block of code (the loop body) to be executed repeatedly based on a control condition. This repetition continues until the condition is no longer met, preventing redundant coding.
 
-  - 2.`while loop`: Repeats a block of code as long as a specified conditional test remains true (e.g., Waiting for a log file to contain a specific entry).
+3 Types of Loops:
+  
+1.`for loop`: Iterates over a list of items, executing once for each item in a list or range (e.g., Processing every file in a directory).
 
-  - 3.`until loop`: Repeats a block of code as long as a specified conditional test remains false (e.g., Retrying a network connection until it succeeds).
+2.`while loop`: Repeats a block of code as long as a specified conditional test remains true (e.g., Waiting for a log file to contain a specific entry).
+
+3.`until loop`: Repeats a block of code as long as a specified conditional test remains false (e.g., Retrying a network connection until it succeeds).
+
+</details>
+
+<details>
+<summary><b><i>22.Demonstrate how to use loops.</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Three main loop types:
+
+1.`for` Loop (Iterating over a list): This loop runs once for each item listed in the `do...done` block.
+
+```Bash
+for FILE in file1.txt file2.txt file3.txt; do
+  echo "Processing $FILE"
+done
+```
+
+2.`while` Loop (Condition is true): This loop continues executing as long as the condition (`[ $COUNT -lt 3 ]`) remains true.
  
-**_22.Demonstrate how to use loops._**
-
-- Three main loop types:
-  - 1.`for` Loop (Iterating over a list): This loop runs once for each item listed in the `do...done` block.
-
-    - `for FILE in file1.txt file2.txt file3.txt; do`
-    -   `echo "Processing $FILE"`
-    -   `done`
-
-  - 2.`while` Loop (Condition is true): This loop continues executing as long as the condition (`[ $COUNT -lt 3 ]`) remains true.
+```Bash
+COUNT=0
+while [ $COUNT -lt 3 ]; do
+  echo "Count is $COUNT"
+COUNT=$((COUNT + 1))
+done
+```
  
-    - `COUNT=0`
-    - `while [ $COUNT -lt 3 ]; do`
-    -   `echo "Count is $COUNT"`
-    -   `COUNT=$((COUNT + 1))`
-    - `done`
+3.`until` Loop (Condition is false): This loop continues executing until the condition (`[ -f /tmp/data.lock ]`) becomes true (i.e., until the file exists).
  
-  - 3.`until` Loop (Condition is false): This loop continues executing until the condition (`[ -f /tmp/data.lock ]`) becomes true (i.e., until the file exists).
- 
-    - `until [ -f /tmp/data.lock ]; do`
-    - `echo "Waiting for lock file..."`
-    - `done`
+```Bash
+until [ -f /tmp/data.lock ]; do
+  echo "Waiting for lock file..."
+done
+```
 
 ## Troubleshooting
 
-**_23.How do you debug shell scripts?_**
+<details>
+<summary><b><i>23.How do you debug shell scripts?</i></b></summary>
 
-- Answer depends on the language you are using for writing your scripts. If Bash is used for example then:
+$\color{green}{\text{Answer}}$
+
+Answer depends on the language you are using for writing your scripts. If Bash is used for example then:
   - Adding -x to the script I'm running in Bash
   - Old good way of adding echo statements
 
-- If Python, then using pdb is very useful.
+If Python, then using pdb is very useful.
 
-**_24.Running the following bash script, we don't get 2 as a result, why?_**
-- **_x = 2_**
-- **_echo $x_**
+<details>
+<summary><b><i>24.Running the following bash script, we don't get 2 as a result, why?
+  
+```Bash
+x = 2
+```
 
-- Should be `x=2`
+```Bash
+echo $x
+```
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Should be `x=2`
+
+</details>
 
 ## Substring
 
-**_25.How to extract everything after the last dot in a string?_**
+<details>
+<summary><b><i>25.How to extract everything after the last dot in a string?</i></b></summary>
 
-- `${var//*.}`
+$\color{green}{\text{Answer}}$
 
-**_26.How to extract everything before the last dot in a string?_**
+`${var//*.}`
 
-- `${var%.*}`
+</details>
+
+<details>
+<summary><b><i>26.How to extract everything before the last dot in a string?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+`${var%.*}`
+
+</details>
 
 ## Misc
 
-**_27.Generate 8 digit random number._**
+<details>
+<summary><b><i>27.Generate 8 digit random number.</i></b></summary>
 
-- `shuf -i 9999999-99999999 -n 1`
+$\color{green}{\text{Answer}}$
 
-**_28.Can you give an example to some Bash best practices?_**
+`shuf -i 9999999-99999999 -n 1`
 
-- Four essential Bash scripting best practices:
-  - 1.Use Shebang: Always start scripts with `#!/bin/bash` (or `#!/usr/bin/env bash`) to ensure the correct interpreter is used.
+</details>
 
-  - 2.Error Handling (Crucial!): Include `set -euo pipefail` at the top. This ensures the script exits immediately on errors (`-e`), handles unset variables (`-u`), and checks pipeline failures (`-o pipefail`).
+<details>
+<summary><b><i>28.Can you give an example to some Bash best practices?</i></b></summary>
 
-  - 3.Quote Variables: Always use double quotes (`"..."`) around variable expansions (e.g., `"$VAR"`) to prevent word splitting and globbing issues.
+$\color{green}{\text{Answer}}$
 
-  - 4.Use Functions: Break complex scripts into smaller, reusable functions.
+Four essential Bash scripting best practices:
 
-**_29.What is the ternary operator? How do you use it in bash?_**
+1.Use Shebang: Always start scripts with `#!/bin/bash` (or `#!/usr/bin/env bash`) to ensure the correct interpreter is used.
 
-- A short way of using if/else. An example:
+2.Error Handling (Crucial!): Include `set -euo pipefail` at the top. This ensures the script exits immediately on errors (`-e`), handles unset variables (`-u`), and checks pipeline failures (`-o pipefail`).
 
-- `[[ $a = 1 ]] && b="yes, equal" || b="nope"`
+3.Quote Variables: Always use double quotes (`"..."`) around variable expansions (e.g., `"$VAR"`) to prevent word splitting and globbing issues.
 
-**_30.What does the following code do and when would you use it?_**
-- **_diff <(ls /tmp) <(ls /var/tmp)_**
+4.Use Functions: Break complex scripts into smaller, reusable functions.
 
-- It is called 'process substitution'. It provides a way to pass the output of a command to another command when using a pipe | is not possible. It can be used when a command does not support STDIN or you need the output of multiple commands.
+<details>
+<summary><b><i>29.What is the ternary operator? How do you use it in bash?</i></b></summary>
 
-**_31.What are you using for testing shell scripts?_**
+$\color{green}{\text{Answer}}$
+
+A short way of using if/else. An example:
+  - `[[ $a = 1 ]] && b="yes, equal" || b="nope"`
+
+</details>
+
+<details>
+<summary><b><i>30.What does the following code do and when would you use it?
+
+```Bash
+diff <(ls /tmp) <(ls /var/tmp)
+```
+
+</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+It is called 'process substitution'. It provides a way to pass the output of a command to another command when using a pipe | is not possible. It can be used when a command does not support STDIN or you need the output of multiple commands.
+
+</details>
+
+<details>
+<summary><b><i>31.What are you using for testing shell scripts?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
 
 - bats
 
+</details>
