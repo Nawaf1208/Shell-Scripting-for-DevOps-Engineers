@@ -181,32 +181,53 @@ if [ ${#1} -ne ${#2} ]; then
 
 ## Conditionals
 
-**_15.Explain conditionals and demonstrate how to use them._**
+<details>
+<summary><b><i>15.Explain conditionals and demonstrate how to use them.</i></b></summary>
 
-- Conditionals allow the shell to execute different code blocks based on whether a test expression (evaluated using `if` with `[ ]` or `(( ))`) is true or false.
+$\color{green}{\text{Answer}}$
 
-- `# Checks if file exists`
-- `if [ -f /etc/hosts ]; then`
--   `echo "Hosts file found."`
-- `fi`
+Conditionals allow the shell to execute different code blocks based on whether a test expression (evaluated using `if` with `[ ]` or `(( ))`) is true or false.
 
-- `# Checks if 10 is greater than 5`
-- `NUM=10`
-- `if (( NUM > 5 )); then`
--   `echo "True."`
-- `else`
--   `echo "False."`
-- `fi`
+```Bash
+# Checks if file exists
+if [ -f /etc/hosts ]; then
+  echo "Hosts file found."
+fi
+```
 
-**_16.In shell scripting, how to negate a conditional?_**
+```Bash
+# Checks if 10 is greater than 5
+NUM=10
+if (( NUM > 5 )); then
+  echo "True."
+else
+  echo "False."
+fi
+```
 
-- In shell scripting (Bash), you negate a conditional test using the `!` (exclamation mark) operator.
+</details>
 
-**_17.In shell scripting, how to check if a given argument is a number?_**
+<details>
+<summary><b><i>16.In shell scripting, how to negate a conditional?</i></b></summary>
 
-- `regex='^[0-9]+$'`
-- `if [[ ${var//*.} =~ $regex ]]; then`
-- `...`
+$\color{green}{\text{Answer}}$
+
+In shell scripting (Bash), you negate a conditional test using the `!` (exclamation mark) operator.
+
+</details>
+
+<details>
+<summary><b><i>17.In shell scripting, how to check if a given argument is a number?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+```Bash
+regex='^[0-9]+$'
+if [[ ${var//*.} =~ $regex ]]; then
+...
+```
+
+</details>
 
 ## Arithmetic Operations
 
