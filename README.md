@@ -314,6 +314,8 @@ until [ -f /tmp/data.lock ]; do
 done
 ```
 
+</details>
+
 ## Troubleshooting
 
 <details>
