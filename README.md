@@ -329,6 +329,8 @@ Answer depends on the language you are using for writing your scripts. If Bash i
 
 If Python, then using pdb is very useful.
 
+</details>
+
 <details>
 <summary><b><i>24.Running the following bash script, we don't get 2 as a result, why?
   
