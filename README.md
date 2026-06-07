@@ -145,6 +145,8 @@ When used unquoted (`$@`), the shell treats it as separate arguments (`$1` `$2` 
 
 When used double-quoted (`"$@"`), the shell treats it as separate, individually quoted strings (`"$1"` `"$2"` `"$3"`...), which is the preferred and safest way to preserve arguments containing spaces or special characters.
 
+</details>
+
 <details>
 <summary><b><i>12.What is difference between $@ and $*?</i></b></summary>
 
