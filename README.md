@@ -68,6 +68,8 @@ $\color{green}{\text{Answer}}$
 
 `HW="Hello World`
 
+</details>
+
 <details>
 <summary><b><i>6.How to define a variable with the value of the current date?</i></b></summary>
 
