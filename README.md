@@ -396,6 +396,8 @@ Four essential Bash scripting best practices:
 
 4.Use Functions: Break complex scripts into smaller, reusable functions.
 
+</details>
+
 <details>
 <summary><b><i>29.What is the ternary operator? How do you use it in bash?</i></b></summary>
 
